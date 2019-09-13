@@ -882,9 +882,9 @@ public class RNFSManager extends ReactContextBaseJavaModule {
       totalSpaceEx = statEx.getTotalBytes();
       freeSpaceEx = statEx.getFreeBytes();
     } else {
-      long blockSize = stat.getBlockSize();
-      totalSpace = blockSize * stat.getBlockCount();
-      freeSpace = blockSize * stat.getAvailableBlocks();
+      long blockSize = stat.getBlockSizeLong();
+      totalSpace = blockSize * stat.getBlockCountLong();
+      freeSpace = blockSize * stat.getAvailableBlocksLong();
     }
     WritableMap info = Arguments.createMap();
     info.putDouble("totalSpace", (double) totalSpace);   // Int32 too small, must use Double
